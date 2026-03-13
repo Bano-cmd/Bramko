@@ -33,7 +33,7 @@ const FOOTER_HTML = `
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html"><img src="LOGO.png" alt="Bramko" style="height:55px;width:auto;display:block;border-radius:.8rem"></a>
+      <a href="index.html"><img src="LOGO_footer.png" alt="Bramko" style="height:55px;width:auto;display:block;border-radius:.8rem"></a>
       <p style="margin-top:.8rem">Největší pěstitel a dodavatel brambor a zeleniny v ČR. Kvalita a tradice ze Semic od roku 1992.</p>
     </div>
     <div class="footer-col">
