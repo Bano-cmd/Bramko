@@ -2,23 +2,23 @@
 const NAV_HTML = `
 <nav>
   <div class="nav-inner">
-    <a href="../index.html" class="logo">BRAM<span>KO</span><small>Semice</small></a>
+    <a href="index.html" class="logo">BRAM<span>KO</span><small>Semice</small></a>
     <ul class="nav-links">
-      <li><a href="../index.html" data-page="home">Úvod</a></li>
-      <li><a href="../o-firme.html" data-page="o-firme">O firmě</a></li>
+      <li><a href="index.html" data-page="home">Úvod</a></li>
+      <li><a href="o-firme.html" data-page="o-firme">O firmě</a></li>
       <li class="has-drop">
-        <a href="../produkty.html" data-page="produkty">Produkty</a>
+        <a href="produkty.html" data-page="produkty">Produkty</a>
         <div class="dropdown">
-          <a href="../produkty.html#brambory"><span class="di">🥔</span> Brambory</a>
-          <a href="../produkty.html#zelenina"><span class="di">🥕</span> Kořenová zelenina</a>
-          <a href="../produkty.html#listova"><span class="di">🥬</span> Listová zelenina</a>
-          <a href="../produkty.html#dalsi"><span class="di">🧅</span> Cibule & česnek</a>
+          <a href="produkty.html#brambory"><span class="di">🥔</span> Brambory</a>
+          <a href="produkty.html#zelenina"><span class="di">🥕</span> Kořenová zelenina</a>
+          <a href="produkty.html#listova"><span class="di">🥬</span> Listová zelenina</a>
+          <a href="produkty.html#dalsi"><span class="di">🧅</span> Cibule & česnek</a>
         </div>
       </li>
-      <li><a href="../certifikaty.html" data-page="certifikaty">Certifikáty</a></li>
-      <li><a href="../galerie.html" data-page="galerie">Galerie</a></li>
-      <li><a href="../kariera.html" data-page="kariera">Kariéra</a></li>
-      <li><a href="../kontakt.html" data-page="kontakt" class="nav-cta">Kontakt</a></li>
+      <li><a href="certifikaty.html" data-page="certifikaty">Certifikáty</a></li>
+      <li><a href="galerie.html" data-page="galerie">Galerie</a></li>
+      <li><a href="kariera.html" data-page="kariera">Kariéra</a></li>
+      <li><a href="kontakt.html" data-page="kontakt" class="nav-cta">Kontakt</a></li>
     </ul>
     <div class="nav-lang">
       <a href="#" class="active-lang">CZ</a><span>|</span>
@@ -33,20 +33,20 @@ const FOOTER_HTML = `
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="../index.html" class="logo" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:white;text-decoration:none">BRAM<span style="color:#7ab648">KO</span></a>
+      <a href="index.html" class="logo" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:white;text-decoration:none">BRAM<span style="color:#7ab648">KO</span></a>
       <p style="margin-top:.8rem">Největší pěstitel a dodavatel brambor a zeleniny v ČR. Kvalita a tradice ze Semic od roku 1992.</p>
     </div>
     <div class="footer-col">
       <h4>Navigace</h4>
-      <a href="../o-firme.html">O firmě</a>
-      <a href="../produkty.html">Produkty</a>
-      <a href="../certifikaty.html">Certifikáty</a>
-      <a href="../galerie.html">Galerie</a>
+      <a href="o-firme.html">O firmě</a>
+      <a href="produkty.html">Produkty</a>
+      <a href="certifikaty.html">Certifikáty</a>
+      <a href="galerie.html">Galerie</a>
     </div>
     <div class="footer-col">
       <h4>Společnost</h4>
-      <a href="../kariera.html">Kariéra</a>
-      <a href="../kontakt.html">Kontakt</a>
+      <a href="kariera.html">Kariéra</a>
+      <a href="kontakt.html">Kontakt</a>
       <a href="#">Ochrana dat</a>
       <a href="#">IČO: 27592413</a>
     </div>
@@ -90,9 +90,4 @@ function initPage(activePage) {
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Fix relative paths based on depth
-  const isRoot = !window.location.pathname.includes('/produkty/');
-  document.querySelectorAll('a[href^="../"]').forEach(a => {
-    if (isRoot) a.href = a.href.replace('../', '');
-  });
 }
