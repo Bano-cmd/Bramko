@@ -2,7 +2,7 @@
 const NAV_HTML = `
 <nav>
   <div class="nav-inner">
-    <a href="index.html" class="logo">BRAM<span>KO</span><small>Semice</small></a>
+    <a href="index.html" class="logo-img"><img src="LOGO.jpg" alt="Bramko" style="height:44px;width:auto;display:block"></a>
     <ul class="nav-links">
       <li><a href="index.html" data-page="home">Úvod</a></li>
       <li><a href="o-firme.html" data-page="o-firme">O firmě</a></li>
@@ -33,7 +33,7 @@ const FOOTER_HTML = `
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <a href="index.html" class="logo" style="font-family:'DM Serif Display',serif;font-size:1.4rem;color:white;text-decoration:none">BRAM<span style="color:#7ab648">KO</span></a>
+      <a href="index.html"><img src="LOGO.jpg" alt="Bramko" style="height:50px;width:auto;display:block;filter:brightness(0) invert(1)"></a>
       <p style="margin-top:.8rem">Největší pěstitel a dodavatel brambor a zeleniny v ČR. Kvalita a tradice ze Semic od roku 1992.</p>
     </div>
     <div class="footer-col">
