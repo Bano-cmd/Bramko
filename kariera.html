@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kariéra – BRAMKO CZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.jobs { padding: 6rem 4rem; }
+.jobs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+.job-card {
+  background: white; border-radius: 1.5rem; padding: 2rem;
+  border: 1px solid rgba(74,124,47,.1); transition: all .3s;
+  display: flex; flex-direction: column;
+}
+.job-card:hover { transform: translateY(-4px); box-shadow: 0 15px 40px rgba(26,46,26,.1); border-color: var(--green-fresh); }
+.job-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.job-title { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--green-deep); }
+.job-type {
+  font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  padding:.3rem .8rem; border-radius:1rem;
+}
+.type-full { background:rgba(74,124,47,.1); color:var(--green-fresh); }
+.type-season { background:rgba(200,169,74,.15); color:var(--soil); }
+.job-location { font-size:.82rem; color:#aaa; margin-bottom:.8rem; display:flex; align-items:center; gap:.4rem; }
+.job-desc { font-size:.85rem; color:#777; line-height:1.65; flex:1; margin-bottom:1.2rem; }
+.job-tags { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:1.2rem; }
+.job-tag { font-size:.72rem; background:var(--cream); padding:.25rem .7rem; border-radius:1rem; color:#777; }
+.job-apply { display:inline-flex; align-items:center; gap:.4rem; color:var(--green-fresh); font-weight:600; font-size:.85rem; text-decoration:none; border-bottom:1.5px solid rgba(74,124,47,.3); padding-bottom:1px; transition:all .2s; }
+.job-apply:hover { color:var(--green-deep); border-color:var(--green-deep); }
+
+.benefits { padding: 6rem 4rem; background: var(--cream); }
+.ben-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:3rem; }
+.ben-card { background:white; border-radius:1.2rem; padding:1.8rem 1.4rem; border:1px solid rgba(74,124,47,.1); text-align:center; transition:all .2s; }
+.ben-card:hover { border-color:var(--green-fresh); transform:translateY(-3px); }
+.ben-icon { font-size:2rem; margin-bottom:.8rem; }
+.ben-title { font-weight:600; color:var(--green-deep); font-size:.9rem; margin-bottom:.4rem; }
+.ben-desc { font-size:.78rem; color:#999; line-height:1.5; }
+
+.open-app { padding:6rem 4rem; }
+.open-app-inner {
+  background: var(--green-deep); border-radius:2rem; padding:4rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;
+}
+.open-app h2 { font-family:'DM Serif Display',serif; font-size:2.2rem; color:white; margin-bottom:1rem; }
+.open-app p { color:rgba(255,255,255,.6); line-height:1.75; margin-bottom:2rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+.form-input {
+  padding:.85rem 1.1rem; border-radius:.8rem;
+  border:1px solid rgba(255,255,255,.15); background:rgba(255,255,255,.07);
+  color:white; font-size:.9rem; outline:none; transition:border-color .2s;
+  font-family:'DM Sans',sans-serif;
+}
+.form-input::placeholder { color:rgba(255,255,255,.35); }
+.form-input:focus { border-color:var(--green-light); }
+.form-input.full { grid-column:1/-1; }
+select.form-input option { background:#1a2e1a; }
+</style>
+</head>
+<body>
+<main>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">👨‍🌾 Kariéra</div>
+    <h1>Přidejte se<br>k naší <em>zelené</em> rodině</h1>
+    <p>Hledáme lidi, kteří mají rádi práci, přírodu a výsledky. Nabízíme stabilní zázemí největšího zemědělského podniku v ČR.</p>
+  </div>
+</div>
+
+<!-- Jobs -->
+<section class="jobs">
+  <div class="section-tag">— Volná místa</div>
+  <div class="section-title">Aktuálně <em>hledáme</em></div>
+  <div class="jobs-grid">
+
+    <div class="job-card reveal">
+      <div class="job-header">
+        <div class="job-title">Traktorista / Strojník</div>
+        <span class="job-type type-full">Trvalý</span>
+      </div>
+      <div class="job-location">📍 Semice, Středočeský kraj</div>
+      <p class="job-desc">Hledáme zkušeného traktoristy pro práci na polích v okolí Semic. Obsluhujete moderní zemědělskou techniku, účastníte se setí, ošetřování porostů i sklizně.</p>
+      <div class="job-tags">
+        <span class="job-tag">Řidičský průkaz T</span>
+        <span class="job-tag">Praxe výhodou</span>
+        <span class="job-tag">Ubytování možné</span>
+      </div>
+      <a href="kontakt.html" class="job-apply">Odpovědět na inzerát →</a>
+    </div>
+
+    <div class="job-card reveal" style="transition-delay:.1s">
+      <div class="job-header">
+        <div class="job-title">Skladník / Manipulant</div>
+        <span class="job-type type-full">Trvalý</span>
+      </div>
+      <div class="job-location">📍 Semice, Středočeský kraj</div>
+      <p class="job-desc">Práce v moderním skladovacím areálu – manipulace s paletami zeleniny, obsluha vidlicového vozíku, evidence skladu, spolupráce s expedicí.</p>
+      <div class="job-tags">
+        <span class="job-tag">Průkaz VZV výhodou</span>
+        <span class="job-tag">2 směnný provoz</span>
+        <span class="job-tag">Zaučíme</span>
+      </div>
+      <a href="kontakt.html" class="job-apply">Odpovědět na inzerát →</a>
+    </div>
+
+    <div class="job-card reveal" style="transition-delay:.2s">
+      <div class="job-header">
+        <div class="job-title">Pracovník balírny</div>
+        <span class="job-type type-season">Sezónní</span>
+      </div>
+      <div class="job-location">📍 Semice, Středočeský kraj</div>
+      <p class="job-desc">Třídění a balení zeleniny na automatizovaných linkách. Práce vhodná i pro osoby bez praxe, zaučení přímo na místě. Sezóna červenec – prosinec.</p>
+      <div class="job-tags">
+        <span class="job-tag">Bez praxe</span>
+        <span class="job-tag">Vhodné pro studenty</span>
+        <span class="job-tag">Flexibilní směny</span>
+      </div>
+      <a href="kontakt.html" class="job-apply">Odpovědět na inzerát →</a>
+    </div>
+
+    <div class="job-card reveal" style="transition-delay:.3s">
+      <div class="job-header">
+        <div class="job-title">Řidič kamionu (C+E)</div>
+        <span class="job-type type-full">Trvalý</span>
+      </div>
+      <div class="job-location">📍 Semice + trasy po ČR a EU</div>
+      <p class="job-desc">Přeprava zeleniny a brambor do distribučních center a velkoobchodů. Trasy po ČR i mezinárodní linky do SRN, Polska a dalších zemí EU.</p>
+      <div class="job-tags">
+        <span class="job-tag">Řidičák C+E</span>
+        <span class="job-tag">Karta řidiče</span>
+        <span class="job-tag">ADR výhodou</span>
+      </div>
+      <a href="kontakt.html" class="job-apply">Odpovědět na inzerát →</a>
+    </div>
+
+    <div class="job-card reveal" style="transition-delay:.4s">
+      <div class="job-header">
+        <div class="job-title">Agrotechnik / Agronom</div>
+        <span class="job-type type-full">Trvalý</span>
+      </div>
+      <div class="job-location">📍 Semice, Středočeský kraj</div>
+      <p class="job-desc">Plánování a řízení pěstebních procesů, správa osevního postupu, kontrola kvality porostů, spolupráce s certifikačními orgány a vedení agrotechnické dokumentace.</p>
+      <div class="job-tags">
+        <span class="job-tag">VŠ zemědělského směru</span>
+        <span class="job-tag">GlobalG.A.P. výhodou</span>
+        <span class="job-tag">ŘP B</span>
+      </div>
+      <a href="kontakt.html" class="job-apply">Odpovědět na inzerát →</a>
+    </div>
+
+    <div class="job-card reveal" style="transition-delay:.5s">
+      <div class="job-header">
+        <div class="job-title">Pomocný zemědělský dělník</div>
+        <span class="job-type type-season">Sezónní</span>
+      </div>
+      <div class="job-location">📍 Semice a okolí</div>
+      <p class="job-desc">Ruční sklizeň, přebírání zeleniny, pomoc při balení a expedici. Sezóna jaro–podzim. Vhodné jako brigáda i hlavní pracovní poměr.</p>
+      <div class="job-tags">
+        <span class="job-tag">Bez požadavků</span>
+        <span class="job-tag">Brigáda i HPP</span>
+        <span class="job-tag">Denní i ranní směna</span>
+      </div>
+      <a href="kontakt.html" class="job-apply">Odpovědět na inzerát →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Benefits -->
+<section class="benefits">
+  <div class="section-tag">— Co nabízíme</div>
+  <div class="section-title">Proč pracovat <em>u nás</em></div>
+  <div class="ben-grid">
+    <div class="ben-card reveal"><div class="ben-icon">💰</div><div class="ben-title">Férová odměna</div><div class="ben-desc">Konkurenceschopná mzda + prémie za výkon. Mzda vyplácena vždy včas.</div></div>
+    <div class="ben-card reveal" style="transition-delay:.1s"><div class="ben-icon">🏠</div><div class="ben-title">Ubytování</div><div class="ben-desc">Pro zaměstnance z dálky nabízíme možnost ubytování v areálu firmy.</div></div>
+    <div class="ben-card reveal" style="transition-delay:.2s"><div class="ben-icon">📈</div><div class="ben-title">Rozvoj</div><div class="ben-desc">Interní školení, kurzy a možnost růstu v rámci skupiny BRAMKO.</div></div>
+    <div class="ben-card reveal" style="transition-delay:.3s"><div class="ben-icon">🤝</div><div class="ben-title">Stabilita</div><div class="ben-desc">Zaměstnanec největšího pěstitele zeleniny v ČR. Firma s 30letou tradicí.</div></div>
+  </div>
+</section>
+
+<!-- Spontaneous application -->
+<section class="open-app">
+  <div class="open-app-inner reveal">
+    <div>
+      <div class="section-tag" style="color:var(--green-light)">— Nenašli jste volné místo?</div>
+      <h2>Pošlete nám volnou přihlášku</h2>
+      <p>Rádi se podíváme na váš životopis, i když aktuálně nemáme vypsáno vhodné místo. Ozveme se, jakmile budeme hledat.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap">
+        <a href="mailto:bramko@bramko.cz" class="btn btn-green">📧 Napište nám</a>
+        <a href="tel:+420325517411" class="btn btn-outline" style="border-color:rgba(255,255,255,.3);color:white">📞 Zavolejte</a>
+      </div>
+    </div>
+    <div>
+      <div class="form-row">
+        <input type="text" class="form-input" placeholder="Jméno a příjmení">
+        <input type="email" class="form-input" placeholder="E-mail">
+      </div>
+      <input type="text" class="form-input full" placeholder="Pozice, o kterou máte zájem" style="width:100%;margin-bottom:1rem;display:block">
+      <textarea class="form-input full" rows="4" placeholder="Krátký průvodní dopis..." style="width:100%;display:block;resize:vertical;margin-bottom:1rem"></textarea>
+      <button class="btn btn-green" style="width:100%;justify-content:center" onclick="alert('Děkujeme! V reálném nasazení by formulář odeslal data na server.')">Odeslat přihlášku →</button>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="shared.js"></script>
+<script>initPage('kariera');</script>
+</body>
+</html>

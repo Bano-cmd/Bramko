@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie – BRAMKO CZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.gallery-section { padding: 5rem 4rem; }
+.gallery-tabs { display: flex; gap: .6rem; margin-bottom: 3rem; flex-wrap: wrap; }
+.gallery-tab {
+  padding: .5rem 1.2rem; border-radius: 2rem; border: 1.5px solid var(--border);
+  font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  color: #777; background: white; cursor: pointer; transition: all .2s;
+}
+.gallery-tab:hover, .gallery-tab.active {
+  background: var(--green-fresh); color: white; border-color: var(--green-fresh);
+}
+
+.masonry {
+  columns: 3; gap: 1.2rem; column-fill: balance;
+}
+.masonry-item {
+  break-inside: avoid; margin-bottom: 1.2rem;
+  border-radius: 1.2rem; overflow: hidden;
+  background: var(--green-deep); position: relative;
+  cursor: pointer; transition: transform .3s;
+}
+.masonry-item:hover { transform: scale(1.02); }
+.masonry-item:hover .gallery-caption { opacity: 1; }
+
+.gallery-img {
+  width: 100%; display: block;
+  aspect-ratio: var(--ar, 4/3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; background: linear-gradient(135deg, #1a3a10, #2d5a1a);
+}
+.gallery-img.tall { aspect-ratio: 3/4; }
+.gallery-img.wide { aspect-ratio: 16/9; }
+.gallery-img.square { aspect-ratio: 1; }
+
+.gallery-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,.7));
+  color: white; padding: 2rem 1.2rem 1rem;
+  font-size: .82rem; font-weight: 500;
+  opacity: 0; transition: opacity .3s;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,.92); display: none;
+  align-items: center; justify-content: center;
+}
+.lightbox.open { display: flex; }
+.lightbox-inner {
+  background: var(--green-deep); border-radius: 1.5rem; padding: 3rem;
+  max-width: 600px; width: 90%; text-align: center;
+}
+.lightbox-emoji { font-size: 8rem; margin-bottom: 1.5rem; }
+.lightbox-title { font-family:'DM Serif Display',serif; font-size:1.8rem; color:white; margin-bottom:.5rem; }
+.lightbox-desc { color:rgba(255,255,255,.6); font-size:.9rem; line-height:1.7; margin-bottom:2rem; }
+.lightbox-close {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(255,255,255,.1); color: white; border: none;
+  font-size: 1.2rem; cursor: pointer; transition: background .2s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,.2); }
+
+/* Gallery items data */
+.gi-1 { --ar: 4/3; } .gi-2 { --ar: 3/4; } .gi-3 { --ar: 4/3; }
+.gi-4 { --ar: 1; } .gi-5 { --ar: 16/9; } .gi-6 { --ar: 4/3; }
+.gi-7 { --ar: 3/4; } .gi-8 { --ar: 4/3; } .gi-9 { --ar: 1; }
+</style>
+</head>
+<body>
+<main>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">📷 Galerie</div>
+    <h1>Pohled do <em>zákulisí</em><br>BRAMKO</h1>
+    <p>Prohlédněte si naše pole, sklady, technologie a produkty. Každý den tvrdé práce stojí za výsledkem, který vidíte v obchodě.</p>
+  </div>
+</div>
+
+<section class="gallery-section">
+  <div class="gallery-tabs">
+    <button class="gallery-tab active" onclick="setTab(this)">Vše</button>
+    <button class="gallery-tab" onclick="setTab(this)">Pole & sklizeň</button>
+    <button class="gallery-tab" onclick="setTab(this)">Produkty</button>
+    <button class="gallery-tab" onclick="setTab(this)">Technologie</button>
+    <button class="gallery-tab" onclick="setTab(this)">Skladování</button>
+  </div>
+
+  <div class="masonry reveal">
+
+    <div class="masonry-item gi-1" onclick="openLb('🌾', 'Sklizeň brambor', 'Každoroční sklizeň brambor v srpnu a září. Naše moderní kombajny sklízí hektary denně s minimálním poškozením hlíz.')">
+      <div class="gallery-img" style="aspect-ratio:4/3;background:linear-gradient(135deg,#1a3a10,#2d5a1a)">🌾</div>
+      <div class="gallery-caption">Sklizeň brambor</div>
+    </div>
+
+    <div class="masonry-item gi-2" onclick="openLb('🥕', 'Čerstvá mrkev', 'Sklizená mrkev připravená k třídění a balení. Chuťově výborná díky optimálnímu zavlažování a hnojení.')">
+      <div class="gallery-img" style="aspect-ratio:3/4;background:linear-gradient(135deg,#2a1500,#6b3000)">🥕</div>
+      <div class="gallery-caption">Čerstvá mrkev ze sklizně</div>
+    </div>
+
+    <div class="masonry-item gi-3" onclick="openLb('🏭', 'Třídící linka', 'Automatická třídící linka zpracovává tisíce tun zeleniny. Elektrické váhy, optické třídění a automatické balení.')">
+      <div class="gallery-img" style="aspect-ratio:4/3;background:linear-gradient(135deg,#0a0a2a,#1a1a4a)">🏭</div>
+      <div class="gallery-caption">Moderní třídící linka</div>
+    </div>
+
+    <div class="masonry-item gi-4" onclick="openLb('🥔', 'Pohled na sklad brambor', 'Sklad s řízenou teplotou a vlhkostí pojme až 17 000 tun brambor. Optimální podmínky pro celoroční skladování.')">
+      <div class="gallery-img" style="aspect-ratio:1;background:linear-gradient(135deg,#2a1a00,#5a3a00)">🥔</div>
+      <div class="gallery-caption">Velkokapacitní sklad brambor</div>
+    </div>
+
+    <div class="masonry-item gi-5" onclick="openLb('🌿', 'Zelená pole v létě', 'Letecký pohled na naše pole v době vegetace. Zelená plocha sahá až za obzor – přes 2 500 hektarů.')">
+      <div class="gallery-img" style="aspect-ratio:16/9;background:linear-gradient(135deg,#0a2a00,#1a5a00)">🌿</div>
+      <div class="gallery-caption">Letecký pohled – léto 2024</div>
+    </div>
+
+    <div class="masonry-item gi-6" onclick="openLb('🚛', 'Expedice', 'Každý den odjíždí 40–50 kamionů s čerstvou zeleninou. Distribuujeme do ČR i do 10 zemí Evropy.')">
+      <div class="gallery-img" style="aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a1a,#3a3a3a)">🚛</div>
+      <div class="gallery-caption">Denní expedice kamionů</div>
+    </div>
+
+    <div class="masonry-item gi-7" onclick="openLb('🧅', 'Cibule v síťkách', 'Cibule balená do síťek různých gramáží podle přání zákazníka. Plně automatizovaný proces balení.')">
+      <div class="gallery-img" style="aspect-ratio:3/4;background:linear-gradient(135deg,#2a1500,#8b4500)">🧅</div>
+      <div class="gallery-caption">Cibule – balírna</div>
+    </div>
+
+    <div class="masonry-item gi-8" onclick="openLb('💧', 'Zavlažovací systém', 'Závlaha na klíčových parcelách. Systém automaticky reaguje na data o vlhkosti půdy a meteorologické předpovědi.')">
+      <div class="gallery-img" style="aspect-ratio:4/3;background:linear-gradient(135deg,#001a2a,#003a5a)">💧</div>
+      <div class="gallery-caption">Inteligentní zavlažování</div>
+    </div>
+
+    <div class="masonry-item gi-9" onclick="openLb('🥬', 'Zelí na poli', 'Bílé zelí v plné zralosti, připravené ke sklizni. Pěstujeme několik odrůd pro různé sezóny a použití.')">
+      <div class="gallery-img" style="aspect-ratio:1;background:linear-gradient(135deg,#0a2a00,#1a5010)">🥬</div>
+      <div class="gallery-caption">Zelí před sklizní</div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:3rem;color:#aaa;font-size:.85rem" class="reveal">
+    📸 Fotografie budou doplněny aktuálními snímky z provozu. Kontaktujte nás pro mediální materiály.
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLb(event)">
+  <button class="lightbox-close" onclick="closeLb()">✕</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-emoji" id="lb-emoji"></div>
+    <div class="lightbox-title" id="lb-title"></div>
+    <div class="lightbox-desc" id="lb-desc"></div>
+    <a href="kontakt.html" class="btn btn-green" style="display:inline-flex">Kontaktujte nás →</a>
+  </div>
+</div>
+
+</main>
+<script src="shared.js"></script>
+<script>
+initPage('galerie');
+function setTab(btn) {
+  document.querySelectorAll('.gallery-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function openLb(emoji, title, desc) {
+  document.getElementById('lb-emoji').textContent = emoji;
+  document.getElementById('lb-title').textContent = title;
+  document.getElementById('lb-desc').textContent = desc;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLb(e) {
+  if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close'))
+    document.getElementById('lightbox').classList.remove('open');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produkty – BRAMKO CZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.products-full { padding: 6rem 4rem; }
+.cat-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem; color: var(--green-deep);
+  margin-bottom: 1.5rem; padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(74,124,47,.15);
+  display: flex; align-items: center; gap: .7rem;
+}
+.prod-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-bottom: 4rem; }
+.prod-full-card {
+  background: white; border-radius: 1.5rem; padding: 2rem;
+  border: 1px solid rgba(74,124,47,.1); transition: all .3s;
+}
+.prod-full-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(26,46,26,.1); border-color: var(--green-fresh); }
+.prod-full-card .emoji { font-size: 3rem; margin-bottom: 1rem; display: block; }
+.prod-full-card h3 { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--green-deep); margin-bottom:.5rem; }
+.prod-full-card p { font-size:.85rem; color:#888; line-height:1.6; margin-bottom:1rem; }
+.prod-full-card .tags { display:flex; flex-wrap:wrap; gap:.4rem; }
+.prod-full-card .tag {
+  font-size:.68rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+  padding:.25rem .7rem; border-radius:1rem;
+}
+.tag-green { color:var(--green-fresh); background:rgba(74,124,47,.1); }
+.tag-gold { color:var(--soil); background:rgba(200,169,74,.15); }
+.tag-blue { color:#2855a0; background:rgba(40,85,160,.1); }
+
+.filter-bar {
+  display: flex; gap: .6rem; flex-wrap: wrap; margin-bottom: 3rem;
+}
+.filter-btn {
+  padding: .45rem 1.1rem; border-radius: 2rem; border: 1.5px solid var(--border);
+  font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+  color: #777; background: white; cursor: pointer; transition: all .2s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--green-fresh); color: white; border-color: var(--green-fresh);
+}
+
+.season-table {
+  background: white; border-radius: 1.5rem; overflow: hidden;
+  border: 1px solid rgba(74,124,47,.1); margin-top: 2rem;
+}
+.season-table table { width:100%; border-collapse:collapse; }
+.season-table th, .season-table td { padding:.9rem 1rem; font-size:.82rem; border-bottom:1px solid rgba(74,124,47,.07); }
+.season-table th { background:var(--green-deep); color:white; font-weight:600; letter-spacing:.04em; text-align:left; }
+.season-table tr:last-child td { border:none; }
+.season-table tr:hover td { background:rgba(74,124,47,.03); }
+.dot-yes { display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--green-fresh); }
+.dot-no { display:inline-block; width:10px; height:10px; border-radius:50%; background:#e5e5e5; }
+.dot-part { display:inline-block; width:10px; height:10px; border-radius:50%; background:var(--gold); }
+</style>
+</head>
+<body>
+<main>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">🌱 Sortiment</div>
+    <h1>Naše <em>produkty</em></h1>
+    <p>Pěstujeme přes 15 druhů zeleniny a brambor s využitím nejmodernějších technologií. Celoroční dostupnost díky vlastním skladům.</p>
+  </div>
+</div>
+
+<section class="products-full">
+
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" onclick="filterAll(this)">Vše</button>
+    <button class="filter-btn" onclick="filterAll(this)">Celoroční</button>
+    <button class="filter-btn" onclick="filterAll(this)">Sezónní</button>
+    <button class="filter-btn" onclick="filterAll(this)">Export</button>
+    <button class="filter-btn" onclick="filterAll(this)">Bio</button>
+  </div>
+
+  <!-- Brambory -->
+  <div id="brambory">
+    <div class="cat-title reveal">🥔 Brambory</div>
+    <div class="prod-grid">
+      <div class="prod-full-card reveal">
+        <span class="emoji">🥔</span>
+        <h3>Konzumní brambory</h3>
+        <p>Pěstujeme řadu odrůd pro maloobchod i velkoobchod. Sklizeň, třídění a balení na míru zákazníka.</p>
+        <div class="tags"><span class="tag tag-green">Celoroční</span><span class="tag tag-blue">Export</span></div>
+      </div>
+      <div class="prod-full-card reveal" style="transition-delay:.1s">
+        <span class="emoji">🏭</span>
+        <h3>Průmyslové brambory</h3>
+        <p>Dodávky pro zpracovatele – chipsy, hranolky, škrob. Velké objemy, stabilní kvalita.</p>
+        <div class="tags"><span class="tag tag-green">Celoroční</span><span class="tag tag-gold">Velkoobchod</span></div>
+      </div>
+      <div class="prod-full-card reveal" style="transition-delay:.2s">
+        <span class="emoji">🌱</span>
+        <h3>Sadbové brambory</h3>
+        <p>Certifikovaná sadba pro další pěstitele. Různé odrůdy přizpůsobené podmínkám ČR.</p>
+        <div class="tags"><span class="tag tag-gold">Jaro</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kořenová zelenina -->
+  <div id="zelenina">
+    <div class="cat-title reveal">🥕 Kořenová zelenina</div>
+    <div class="prod-grid">
+      <div class="prod-full-card reveal">
+        <span class="emoji">🥕</span>
+        <h3>Mrkev</h3>
+        <p>Čerstvá mrkev ve spotřebitelském i průmyslovém balení. Dostupná od léta do jara.</p>
+        <div class="tags"><span class="tag tag-green">Celoroční</span><span class="tag tag-blue">Export</span></div>
+      </div>
+      <div class="prod-full-card reveal" style="transition-delay:.1s">
+        <span class="emoji">🌿</span>
+        <h3>Celer</h3>
+        <p>Bulvový celer pěstovaný na úrodných středočeských polích.</p>
+        <div class="tags"><span class="tag tag-green">Celoroční</span></div>
+      </div>
+      <div class="prod-full-card reveal" style="transition-delay:.2s">
+        <span class="emoji">🍃</span>
+        <h3>Petržel</h3>
+        <p>Kořenová i listová petržel. Balení pro maloobchod i velké objemy pro průmysl.</p>
+        <div class="tags"><span class="tag tag-green">Celoroční</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cibule & česnek -->
+  <div id="dalsi">
+    <div class="cat-title reveal">🧅 Cibule & česnek</div>
+    <div class="prod-grid">
+      <div class="prod-full-card reveal">
+        <span class="emoji">🧅</span>
+        <h3>Cibule žlutá</h3>
+        <p>Nejpopulárnější odrůda. Dostupná po celý rok díky modernímu skladu s řízenou atmosférou.</p>
+        <div class="tags"><span class="tag tag-green">Celoroční</span><span class="tag tag-blue">Export</span></div>
+      </div>
+      <div class="prod-full-card reveal" style="transition-delay:.1s">
+        <span class="emoji">🔴</span>
+        <h3>Cibule červená</h3>
+        <p>Jemnější chuť, oblíbená v gastronomii. Prodáváme volně i v síťkách.</p>
+        <div class="tags"><span class="tag tag-gold">Sezónní</span></div>
+      </div>
+      <div class="prod-full-card reveal" style="transition-delay:.2s">
+        <span class="emoji">🧄</span>
+        <h3>Česnek</h3>
+        <p>Český česnek i importovaný. Celoroční dodávky do řetězců i velkoobchodů.</p>
+        <div class="tags"><span class="tag tag-green">Celoroční</span><span class="tag tag-blue">Export</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listová zelenina -->
+  <div id="listova">
+    <div class="cat-title reveal">🥬 Listová a ostatní zelenina</div>
+    <div class="prod-grid">
+      <div class="prod-full-card reveal">
+        <span class="emoji">🥬</span>
+        <h3>Zelí bílé</h3>
+        <p>Zelí pro přímou spotřebu i průmyslové zpracování. Balení hlaviček i čtvrtí.</p>
+        <div class="tags"><span class="tag tag-gold">Podzim–jaro</span></div>
+      </div>
+      <div class="prod-full-card reveal" style="transition-delay:.1s">
+        <span class="emoji">🥗</span>
+        <h3>Salát</h3>
+        <p>Ledový salát, polníček a sezonní druhy. Rychlá distribuce od sklizně na pult.</p>
+        <div class="tags"><span class="tag tag-gold">Sezónní</span></div>
+      </div>
+      <div class="prod-full-card reveal" style="transition-delay:.2s">
+        <span class="emoji">🥦</span>
+        <h3>Kedlubny & ředkvičky</h3>
+        <p>Křehká jarní zelenina, oblíbená u spotřebitelů. Balení v svazcích i pytlících.</p>
+        <div class="tags"><span class="tag tag-gold">Jaro–léto</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Seasonal table -->
+  <div class="reveal" style="margin-top:2rem">
+    <div class="section-tag">— Sezónní přehled</div>
+    <div class="section-title" style="margin-bottom:1.5rem">Dostupnost <em>během roku</em></div>
+    <div class="season-table">
+      <table>
+        <tr>
+          <th>Produkt</th>
+          <th>Leden</th><th>Únor</th><th>Březen</th><th>Duben</th>
+          <th>Květen</th><th>Červen</th><th>Červenec</th><th>Srpen</th>
+          <th>Září</th><th>Říjen</th><th>Listopad</th><th>Prosinec</th>
+        </tr>
+        <tr><td><b>Brambory</b></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td></tr>
+        <tr><td><b>Mrkev</b></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-part"></span></td><td><span class="dot-no"></span></td><td><span class="dot-no"></span></td><td><span class="dot-part"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td></tr>
+        <tr><td><b>Cibule</b></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td></tr>
+        <tr><td><b>Zelí</b></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-part"></span></td><td><span class="dot-no"></span></td><td><span class="dot-no"></span></td><td><span class="dot-no"></span></td><td><span class="dot-part"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td></tr>
+        <tr><td><b>Salát</b></td><td><span class="dot-no"></span></td><td><span class="dot-no"></span></td><td><span class="dot-part"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-yes"></span></td><td><span class="dot-part"></span></td><td><span class="dot-no"></span></td><td><span class="dot-no"></span></td></tr>
+      </table>
+    </div>
+    <div style="display:flex;gap:1.5rem;margin-top:1rem;font-size:.8rem;color:#888">
+      <span><span class="dot-yes" style="display:inline-block;margin-right:.4rem"></span> Dostupné</span>
+      <span><span class="dot-part" style="display:inline-block;margin-right:.4rem;background:var(--gold)"></span> Částečně</span>
+      <span><span class="dot-no" style="display:inline-block;margin-right:.4rem"></span> Nedostupné</span>
+    </div>
+  </div>
+
+</section>
+</main>
+
+<script src="shared.js"></script>
+<script>
+initPage('produkty');
+function filterAll(btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+// Smooth scroll to anchor on load
+if (window.location.hash) {
+  setTimeout(() => {
+    const el = document.querySelector(window.location.hash);
+    if (el) el.scrollIntoView({behavior:'smooth'});
+  }, 400);
+}
+</script>
+</body>
+</html>

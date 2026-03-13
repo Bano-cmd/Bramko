@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kontakt – BRAMKO CZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-section { padding: 6rem 4rem; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; }
+
+.contact-info { }
+.info-card {
+  background: var(--cream); border-radius: 1.5rem; padding: 2rem;
+  margin-bottom: 1.2rem; border: 1px solid rgba(74,124,47,.1);
+  display: flex; gap: 1rem; align-items: flex-start;
+  transition: all .2s;
+}
+.info-card:hover { border-color: var(--green-fresh); background: rgba(74,124,47,.04); }
+.info-icon { font-size: 1.5rem; width: 44px; text-align: center; flex-shrink: 0; }
+.info-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: #aaa; margin-bottom: .3rem; }
+.info-val { font-weight: 600; color: var(--green-deep); font-size: .95rem; }
+.info-sub { font-size: .8rem; color: #999; margin-top: .2rem; }
+.info-card a { color: var(--green-fresh); text-decoration: none; }
+.info-card a:hover { text-decoration: underline; }
+
+.map-placeholder {
+  background: var(--green-deep); border-radius: 1.5rem; height: 280px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; margin-bottom: 1.5rem; position: relative; overflow: hidden;
+}
+.map-placeholder::after {
+  content: 'Semice, Středočeský kraj'; position: absolute; bottom: 1.5rem;
+  left: 50%; transform: translateX(-50%);
+  background: white; border-radius: 2rem; padding: .4rem 1.2rem;
+  font-size: .8rem; font-weight: 600; color: var(--green-deep); white-space: nowrap;
+}
+
+/* Contact form */
+.contact-form {
+  background: var(--green-deep); border-radius: 2rem; padding: 3rem;
+}
+.contact-form h3 { font-family:'DM Serif Display',serif; font-size:1.8rem; color:white; margin-bottom:.5rem; }
+.contact-form > p { color:rgba(255,255,255,.55); font-size:.9rem; margin-bottom:2rem; }
+.form-group { margin-bottom: 1rem; }
+.form-group label { display:block; font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:rgba(255,255,255,.4); margin-bottom:.4rem; }
+.f-input {
+  width: 100%; padding: .85rem 1.1rem; border-radius: .8rem;
+  border: 1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.07);
+  color: white; font-size: .9rem; outline: none; transition: border-color .2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.f-input::placeholder { color: rgba(255,255,255,.3); }
+.f-input:focus { border-color: var(--green-light); background: rgba(255,255,255,.1); }
+select.f-input option { background: #1a2e1a; }
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-success {
+  background: rgba(122,182,72,.2); border: 1px solid rgba(122,182,72,.4);
+  border-radius: .8rem; padding: 1rem 1.2rem; color: var(--green-light);
+  font-size: .88rem; display: none; align-items: center; gap: .6rem; margin-top: 1rem;
+}
+
+/* Persons */
+.persons { padding: 0 4rem 6rem; }
+.persons-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2rem; }
+.person-card {
+  background: white; border-radius: 1.5rem; padding: 2rem;
+  border: 1px solid rgba(74,124,47,.1); text-align: center; transition: all .3s;
+}
+.person-card:hover { border-color: var(--green-fresh); transform: translateY(-4px); box-shadow: 0 15px 40px rgba(26,46,26,.1); }
+.person-avatar {
+  width: 70px; height: 70px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-fresh), var(--green-light));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem; margin: 0 auto 1rem;
+}
+.person-name { font-weight: 700; color: var(--green-deep); margin-bottom: .2rem; }
+.person-role { font-size: .78rem; color: #aaa; text-transform: uppercase; letter-spacing: .06em; margin-bottom: .8rem; }
+.person-contact a { display:block; font-size:.83rem; color:var(--green-fresh); text-decoration:none; margin-bottom:.3rem; transition:color .2s; }
+.person-contact a:hover { color: var(--green-deep); }
+</style>
+</head>
+<body>
+<main>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">📬 Kontakt</div>
+    <h1>Ozvěte se <em>nám</em></h1>
+    <p>Rádi odpovíme na vaše dotazy, připravíme cenovou nabídku nebo domluvíme osobní schůzku. Jsme tu pro vás každý den.</p>
+  </div>
+</div>
+
+<section class="contact-section">
+  <div class="contact-grid">
+    <div class="reveal">
+      <div class="section-tag">— Kde nás najdete</div>
+      <div class="section-title" style="font-size:2rem;margin-bottom:1.5rem">Kontaktní <em>údaje</em></div>
+
+      <div class="map-placeholder">🗺️</div>
+
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+        <div>
+          <div class="info-label">Adresa</div>
+          <div class="info-val">Semice 43, 289 17 Semice</div>
+          <div class="info-sub">Středočeský kraj, Česká republika</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📞</div>
+        <div>
+          <div class="info-label">Telefon</div>
+          <div class="info-val"><a href="tel:+420325517411">+420 325 517 411</a></div>
+          <div class="info-sub">Po–Pá 6:00–18:00</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📧</div>
+        <div>
+          <div class="info-label">E-mail</div>
+          <div class="info-val"><a href="mailto:bramko@bramko.cz">bramko@bramko.cz</a></div>
+          <div class="info-sub">Odpovídáme do 24 hodin</div>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🏢</div>
+        <div>
+          <div class="info-label">Fakturační údaje</div>
+          <div class="info-val">Družstvo BRAMKO CZ</div>
+          <div class="info-sub">IČO: 27592413 · DIČ: CZ27592413<br>Datová schránka: ik4ud2t</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal">
+      <h3>Napište nám</h3>
+      <p>Vyplňte formulář a ozveme se vám co nejdříve.</p>
+      <div class="form-row-2">
+        <div class="form-group">
+          <label>Jméno *</label>
+          <input type="text" class="f-input" placeholder="Jan Novák" id="f-name">
+        </div>
+        <div class="form-group">
+          <label>Firma</label>
+          <input type="text" class="f-input" placeholder="Vaše firma s.r.o.">
+        </div>
+      </div>
+      <div class="form-row-2">
+        <div class="form-group">
+          <label>E-mail *</label>
+          <input type="email" class="f-input" placeholder="jan@firma.cz" id="f-email">
+        </div>
+        <div class="form-group">
+          <label>Telefon</label>
+          <input type="tel" class="f-input" placeholder="+420 xxx xxx xxx">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Typ dotazu</label>
+        <select class="f-input">
+          <option value="">Vyberte...</option>
+          <option>Zájem o dodávky zeleniny</option>
+          <option>Cenová nabídka</option>
+          <option>Export / mezinárodní spolupráce</option>
+          <option>Kariéra</option>
+          <option>Jiné</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Zpráva *</label>
+        <textarea class="f-input" rows="5" placeholder="Popište váš dotaz nebo zájem..." id="f-msg"></textarea>
+      </div>
+      <button class="btn btn-green" style="width:100%;justify-content:center" onclick="submitForm()">Odeslat zprávu →</button>
+      <div class="form-success" id="form-success">✅ Zpráva odeslána! Ozveme se vám do 24 hodin.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Key contacts -->
+<section class="persons">
+  <div class="section-tag">— Kontaktní osoby</div>
+  <div class="section-title">Na koho se <em>obrátit</em></div>
+  <div class="persons-grid">
+    <div class="person-card reveal">
+      <div class="person-avatar">👨‍💼</div>
+      <div class="person-name">Jan Hochman</div>
+      <div class="person-role">Obchodní ředitel</div>
+      <div class="person-contact">
+        <a href="mailto:jan.hochman@bramko.cz">jan.hochman@bramko.cz</a>
+        <a href="tel:+420325517424">+420 325 517 424</a>
+      </div>
+    </div>
+    <div class="person-card reveal" style="transition-delay:.1s">
+      <div class="person-avatar">👩‍💼</div>
+      <div class="person-name">Obchodní oddělení</div>
+      <div class="person-role">Velkoobchod & Export</div>
+      <div class="person-contact">
+        <a href="mailto:bramko@bramko.cz">bramko@bramko.cz</a>
+        <a href="tel:+420325517411">+420 325 517 411</a>
+      </div>
+    </div>
+    <div class="person-card reveal" style="transition-delay:.2s">
+      <div class="person-avatar">👨‍🌾</div>
+      <div class="person-name">HR oddělení</div>
+      <div class="person-role">Kariéra & Personalistika</div>
+      <div class="person-contact">
+        <a href="mailto:bramko@bramko.cz">bramko@bramko.cz</a>
+        <a href="kariera.html">Volná pracovní místa</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<script src="shared.js"></script>
+<script>
+initPage('kontakt');
+function submitForm() {
+  const name = document.getElementById('f-name').value;
+  const email = document.getElementById('f-email').value;
+  const msg = document.getElementById('f-msg').value;
+  if (!name || !email || !msg) { alert('Prosím vyplňte všechna povinná pole.'); return; }
+  const s = document.getElementById('form-success');
+  s.style.display = 'flex';
+  setTimeout(() => s.style.display = 'none', 5000);
+}
+</script>
+</body>
+</html>

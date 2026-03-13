@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>O firmě – BRAMKO CZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.timeline { padding: 6rem 4rem; }
+.tl-grid { display: grid; grid-template-columns: 1fr 2px 1fr; gap: 0 3rem; position: relative; }
+.tl-line { background: linear-gradient(to bottom, var(--green-fresh), rgba(74,124,47,.2)); border-radius: 2px; }
+.tl-item { margin-bottom: 3rem; }
+.tl-item.right { grid-column: 3; }
+.tl-item.left { grid-column: 1; text-align: right; }
+.tl-year { font-family:'DM Serif Display',serif; font-size:2rem; color:var(--green-fresh); line-height:1; margin-bottom:.4rem; }
+.tl-title { font-weight:600; color:var(--green-deep); margin-bottom:.4rem; }
+.tl-desc { font-size:.85rem; color:#888; line-height:1.6; }
+.tl-dot {
+  grid-column: 2; width:14px; height:14px; background:var(--green-fresh);
+  border-radius:50%; border:3px solid white; box-shadow:0 0 0 3px var(--green-fresh);
+  align-self:start; margin-top:.5rem; justify-self:center;
+}
+
+.values { padding: 6rem 4rem; background: var(--cream); }
+.values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
+.value-card {
+  background:white; border-radius:1.5rem; padding:2.5rem 2rem;
+  border:1px solid rgba(74,124,47,.1); text-align:center; transition:all .3s;
+}
+.value-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(26,46,26,.1); }
+.value-icon { font-size:2.5rem; margin-bottom:1rem; }
+.value-card h3 { font-family:'DM Serif Display',serif; font-size:1.3rem; color:var(--green-deep); margin-bottom:.6rem; }
+.value-card p { font-size:.85rem; color:#888; line-height:1.6; }
+
+.companies { padding: 6rem 4rem; }
+.comp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+.comp-card {
+  background:white; border-radius:1.2rem; padding:1.5rem;
+  border:1px solid rgba(74,124,47,.1); transition:all .2s;
+}
+.comp-card:hover { border-color:var(--green-fresh); background:rgba(74,124,47,.02); }
+.comp-card h4 { font-weight:600; color:var(--green-deep); margin-bottom:.4rem; }
+.comp-card p { font-size:.8rem; color:#999; line-height:1.5; }
+.comp-dot { width:8px; height:8px; border-radius:50%; background:var(--green-fresh); display:inline-block; margin-right:.5rem; }
+</style>
+</head>
+<body>
+<main>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">🏢 O firmě</div>
+    <h1>Tradice, <em>inovace</em><br>a vášeň pro půdu</h1>
+    <p>Od skromných začátků v roce 1992 jsme vyrostli v největšího pěstitele zeleniny v České republice. Náš příběh je příběhem odhodlání a lásky k zemědělství.</p>
+  </div>
+</div>
+
+<!-- Timeline -->
+<section class="timeline">
+  <div class="section-tag">— Historie</div>
+  <div class="section-title" style="margin-bottom:3rem">Náš <em>příběh</em></div>
+
+  <div class="tl-grid">
+    <div class="tl-item left reveal">
+      <div class="tl-year">1992</div>
+      <div class="tl-title">Skromné začátky</div>
+      <div class="tl-desc">Pavel Pokorný zakládá firmu BRAMKO a začíná pěstovat brambory a zeleninu na 30 hektarech půdy v okolí Semic.</div>
+    </div>
+    <div class="tl-dot"></div>
+    <div></div>
+
+    <div></div>
+    <div class="tl-dot"></div>
+    <div class="tl-item right reveal">
+      <div class="tl-year">1999</div>
+      <div class="tl-title">Vstup do obchodních řetězců</div>
+      <div class="tl-desc">Strategická změna – zaměřujeme se na balení a úpravu zeleniny přímo pro konečné zákazníky v obchodech.</div>
+    </div>
+
+    <div class="tl-item left reveal">
+      <div class="tl-year">2003</div>
+      <div class="tl-title">Start exportu</div>
+      <div class="tl-desc">Zahajujeme pravidelný export do sousedních zemí – Německa, Polska a Holandska. Mezinárodní expanze.</div>
+    </div>
+    <div class="tl-dot"></div>
+    <div></div>
+
+    <div></div>
+    <div class="tl-dot"></div>
+    <div class="tl-item right reveal">
+      <div class="tl-year">2006</div>
+      <div class="tl-title">Vznik Družstva BRAMKO CZ</div>
+      <div class="tl-desc">Formální vznik družstva sdružujícího produkční společnosti. Začínáme hospodařit na stovkách hektarů.</div>
+    </div>
+
+    <div class="tl-item left reveal">
+      <div class="tl-year">Dnes</div>
+      <div class="tl-title">Jednička v ČR</div>
+      <div class="tl-desc">2 500 ha, 100 000 t ročně, 50 kamionů denně, export do 10+ zemí. Největší pěstitel zeleniny v České republice.</div>
+    </div>
+    <div class="tl-dot"></div>
+    <div></div>
+  </div>
+</section>
+
+<!-- Values -->
+<section class="values">
+  <div class="section-tag">— Naše hodnoty</div>
+  <div class="section-title">Co nás <em>pohání</em></div>
+  <div class="values-grid">
+    <div class="value-card reveal">
+      <div class="value-icon">🌿</div>
+      <h3>Udržitelnost</h3>
+      <p>Moderní zavlažovací systémy a pěstitelské technologie minimalizují naši ekologickou stopu a šetří přírodní zdroje.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay:.1s">
+      <div class="value-icon">🤝</div>
+      <h3>Partnerství</h3>
+      <p>Dlouhodobé vztahy s odběrateli i pěstiteli. Stavíme na důvěře, spolehlivosti a férovém jednání.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay:.2s">
+      <div class="value-icon">🏆</div>
+      <h3>Kvalita</h3>
+      <p>Každý produkt prochází přísnou kontrolou. Certifikáty GlobalG.A.P. a další normy jsou naším standardem.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay:.3s">
+      <div class="value-icon">💡</div>
+      <h3>Inovace</h3>
+      <p>Investujeme do nejmodernějších technologií sklizně, třídění a skladování pro maximální efektivitu.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay:.4s">
+      <div class="value-icon">🌍</div>
+      <h3>Mezinárodní přesah</h3>
+      <p>Od roku 2003 zásobujeme zákazníky napříč Evropou. Flexibilní logistika s dosahem 800 km od Prahy.</p>
+    </div>
+    <div class="value-card reveal" style="transition-delay:.5s">
+      <div class="value-icon">👨‍🌾</div>
+      <h3>Lidé</h3>
+      <p>Naši zaměstnanci jsou srdcem firmy. Pečujeme o jejich rozvoj a nabízíme stabilní zázemí.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Member companies -->
+<section class="companies">
+  <div class="section-tag">— Struktura skupiny</div>
+  <div class="section-title">Společnosti <em>skupiny</em></div>
+  <p style="color:#666;line-height:1.75;max-width:560px;margin-top:.5rem;margin-bottom:2rem">Družstvo BRAMKO CZ sdružuje výrobní společnosti, které dohromady obhospodařují přes 2 500 hektarů zemědělské půdy v ČR i zahraničí.</p>
+  <div class="comp-grid">
+    <div class="comp-card reveal"><h4><span class="comp-dot"></span>Pavel Pokorný – BRAMKO</h4><p>Mateřská firma, pěstování brambor a zeleniny, Semice</p></div>
+    <div class="comp-card reveal" style="transition-delay:.1s"><h4><span class="comp-dot"></span>Agáta spol. s.r.o.</h4><p>Produkční společnost, středočeský kraj</p></div>
+    <div class="comp-card reveal" style="transition-delay:.2s"><h4><span class="comp-dot"></span>BRAMKO s.r.o.</h4><p>Velkoobchod a distribuce zeleniny, IČO: 25637177</p></div>
+    <div class="comp-card reveal" style="transition-delay:.3s"><h4><span class="comp-dot"></span>Semická s.r.o.</h4><p>Zemědělská výroba, obec Semice a okolí</p></div>
+    <div class="comp-card reveal" style="transition-delay:.4s"><h4><span class="comp-dot"></span>Bruinsma Czech s.r.o.</h4><p>Specializovaná produkce, spolupráce s holandskými partnery</p></div>
+    <div class="comp-card reveal" style="transition-delay:.5s"><h4><span class="comp-dot"></span>Camposol II Lda.</h4><p>Sesterská společnost v Portugalsku, 650 ha, district Beja</p></div>
+  </div>
+</section>
+
+</main>
+<script src="shared.js"></script>
+<script>initPage('o-firme');</script>
+</body>
+</html>

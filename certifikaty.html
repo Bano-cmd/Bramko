@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifikáty – BRAMKO CZ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.certs { padding: 6rem 4rem; }
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+.cert-card {
+  background: white; border-radius: 1.5rem; padding: 2.5rem 2rem;
+  border: 1px solid rgba(74,124,47,.12); text-align: center; transition: all .3s;
+  position: relative; overflow: hidden;
+}
+.cert-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--green-fresh), var(--green-light));
+}
+.cert-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,46,26,.12); }
+.cert-seal {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--green-fresh), var(--green-light));
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.5rem; font-size: 2rem;
+  box-shadow: 0 8px 25px rgba(74,124,47,.3);
+}
+.cert-name { font-family:'DM Serif Display',serif; font-size:1.4rem; color:var(--green-deep); margin-bottom:.5rem; }
+.cert-full { font-size:.78rem; color:#aaa; margin-bottom:1rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; }
+.cert-desc { font-size:.85rem; color:#777; line-height:1.65; }
+.cert-valid {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin-top: 1.2rem; font-size: .72rem; font-weight: 700;
+  color: var(--green-fresh); background: rgba(74,124,47,.08);
+  padding: .3rem .8rem; border-radius: 1rem; letter-spacing: .05em;
+}
+
+.standards { padding: 6rem 4rem; background: var(--cream); }
+.std-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; margin-top: 3rem; }
+.std-item { background: white; border-radius: 1.2rem; padding: 1.8rem; border: 1px solid rgba(74,124,47,.1); display: flex; gap: 1.2rem; align-items: flex-start; }
+.std-icon { width: 44px; height: 44px; border-radius: 1rem; background: rgba(74,124,47,.1); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+.std-item h4 { font-weight: 600; color: var(--green-deep); margin-bottom: .35rem; }
+.std-item p { font-size: .82rem; color: #888; line-height: 1.6; }
+
+.trust-band { background: var(--green-deep); padding: 5rem 4rem; text-align: center; }
+.trust-band h2 { font-family:'DM Serif Display',serif; font-size:clamp(1.8rem,3vw,2.6rem); color:white; margin-bottom:.8rem; }
+.trust-band p { color:rgba(255,255,255,.6); margin-bottom:2rem; }
+.trust-logos { display:flex; justify-content:center; gap:2rem; flex-wrap:wrap; }
+.trust-logo { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:1rem; padding:1rem 2rem; color:rgba(255,255,255,.5); font-size:.85rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+</style>
+</head>
+<body>
+<main>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-tag">🏅 Certifikáty</div>
+    <h1>Kvalita <em>ověřená</em><br>certifikáty</h1>
+    <p>Naše produkty splňují nejvyšší mezinárodní normy. Pravidelné audity a certifikace jsou zárukou, že dostanete to nejlepší.</p>
+  </div>
+</div>
+
+<section class="certs">
+  <div class="section-tag">— Naše certifikace</div>
+  <div class="section-title">Certifikáty, na které se <em>spoléhají</em> naši zákazníci</div>
+  <div class="cert-grid">
+    <div class="cert-card reveal">
+      <div class="cert-seal">🌿</div>
+      <div class="cert-name">GlobalG.A.P.</div>
+      <div class="cert-full">Good Agricultural Practices</div>
+      <p class="cert-desc">Mezinárodní standard pro bezpečnou a udržitelnou zemědělskou výrobu. Zahrnuje ochranu životního prostředí, zdraví pracovníků a bezpečnost potravin.</p>
+      <span class="cert-valid">✓ Platný certifikát</span>
+    </div>
+    <div class="cert-card reveal" style="transition-delay:.1s">
+      <div class="cert-seal">🛡️</div>
+      <div class="cert-name">HACCP</div>
+      <div class="cert-full">Hazard Analysis & Critical Control Points</div>
+      <p class="cert-desc">Systém analýzy nebezpečí a kritických kontrolních bodů. Zajišťuje bezpečnost potravin v celém výrobním procesu od pole po spotřebitele.</p>
+      <span class="cert-valid">✓ Platný certifikát</span>
+    </div>
+    <div class="cert-card reveal" style="transition-delay:.2s">
+      <div class="cert-seal">🇪🇺</div>
+      <div class="cert-name">EU Normy</div>
+      <div class="cert-full">Evropské standardy kvality</div>
+      <p class="cert-desc">Veškerá naše produkce splňuje přísné normy Evropské unie pro maximální rezidua pesticidů, označování a obchodní standardy jakosti zeleniny.</p>
+      <span class="cert-valid">✓ Průběžná shoda</span>
+    </div>
+    <div class="cert-card reveal" style="transition-delay:.3s">
+      <div class="cert-seal">🌱</div>
+      <div class="cert-name">Integrovaná produkce</div>
+      <div class="cert-full">IP – Integrated Production</div>
+      <p class="cert-desc">Certifikace integrované produkce zeleniny. Minimalizace chemických vstupů, podpora přirozených regulačních mechanismů v ekosystému.</p>
+      <span class="cert-valid">✓ Platný certifikát</span>
+    </div>
+    <div class="cert-card reveal" style="transition-delay:.4s">
+      <div class="cert-seal">♻️</div>
+      <div class="cert-name">Environmentální audit</div>
+      <div class="cert-full">Environmental Management</div>
+      <p class="cert-desc">Pravidelné environmentální audity potvrzují naši odpovědnost vůči životnímu prostředí – efektivní hospodaření s vodou, půdou a energií.</p>
+      <span class="cert-valid">✓ Auditováno ročně</span>
+    </div>
+    <div class="cert-card reveal" style="transition-delay:.5s">
+      <div class="cert-seal">📋</div>
+      <div class="cert-name">Sledovatelnost</div>
+      <div class="cert-full">Traceability System</div>
+      <p class="cert-desc">Systém sledovatelnosti umožňuje zpětně dohledat původ každé šarže produktu – od konkrétního pole přes sklizeň až po dodání zákazníkovi.</p>
+      <span class="cert-valid">✓ Aktivní systém</span>
+    </div>
+  </div>
+</section>
+
+<section class="standards">
+  <div class="section-tag">— Standardy kvality</div>
+  <div class="section-title">Jak <em>hlídáme</em> kvalitu</div>
+  <div class="std-grid">
+    <div class="std-item reveal">
+      <div class="std-icon">🔬</div>
+      <div><h4>Laboratoř a analýzy</h4><p>Pravidelné laboratorní rozbory vzorků půdy, vody i produktů. Výsledky jsou základem pro optimalizaci pěstebních postupů.</p></div>
+    </div>
+    <div class="std-item reveal" style="transition-delay:.1s">
+      <div class="std-icon">📊</div>
+      <div><h4>Digitální evidence</h4><p>Veškerá agrotechnika je digitálně evidována – hnojení, postřiky, sklizeň. Data jsou dostupná pro auditory i zákazníky.</p></div>
+    </div>
+    <div class="std-item reveal" style="transition-delay:.2s">
+      <div class="std-icon">👁️</div>
+      <div><h4>Vizuální třídění</h4><p>Každá šarže prochází třídící linkou a vizuální kontrolou. Nestandardní kusy jsou vyřazeny před balením.</p></div>
+    </div>
+    <div class="std-item reveal" style="transition-delay:.3s">
+      <div class="std-icon">🌡️</div>
+      <div><h4>Chladový řetězec</h4><p>Od sklizně do dodání udržujeme optimální teplotu. Moderní chladicí technologie zachovávají čerstvost a trvanlivost.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust-band">
+  <h2>Dodáváme do největších řetězců</h2>
+  <p>Naše certifikáty jsou podmínkou vstupu do těchto obchodních partnerství</p>
+  <div class="trust-logos">
+    <div class="trust-logo">Albert</div>
+    <div class="trust-logo">Kaufland</div>
+    <div class="trust-logo">Lidl</div>
+    <div class="trust-logo">Penny</div>
+    <div class="trust-logo">Makro</div>
+    <div class="trust-logo">Globus</div>
+  </div>
+</div>
+
+</main>
+<script src="shared.js"></script>
+<script>initPage('certifikaty');</script>
+</body>
+</html>
