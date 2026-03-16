@@ -26,6 +26,9 @@ const NAV_HTML = `
       <a href="#">DE</a><span>|</span>
       <a href="#">IT</a>
     </div>
+    <button class="nav-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>`;
 
@@ -84,10 +87,37 @@ function initPage(activePage) {
     a.style.cssText = 'background:var(--green-fresh);color:white!important;padding:.4rem 1.1rem;border-radius:2rem;';
   });
 
+  // Hamburger menu
+  const hamburger = document.querySelector('.nav-hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('mobile-open');
+      document.body.style.overflow = navLinks.classList.contains('mobile-open') ? 'hidden' : '';
+    });
+    // Dropdown toggle on mobile
+    document.querySelectorAll('.has-drop > a').forEach(a => {
+      a.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          a.closest('.has-drop').classList.toggle('drop-open');
+        }
+      });
+    });
+    // Close menu on link click
+    document.querySelectorAll('.nav-links a:not(.has-drop > a)').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('mobile-open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
   // Scroll reveal
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
 }

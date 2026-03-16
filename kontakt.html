@@ -188,7 +188,7 @@ select.f-input option { background: #1a2e1a; }
     <div class="person-card reveal">
       <div class="person-avatar">👨‍💼</div>
       <div class="person-name">Jan Hochman</div>
-      <div class="person-role">Obchodní zástupce</div>
+      <div class="person-role">Obchodní ředitel</div>
       <div class="person-contact">
         <a href="mailto:jan.hochman@bramko.cz">jan.hochman@bramko.cz</a>
         <a href="tel:+420325517424">+420 325 517 424</a>
@@ -208,7 +208,7 @@ select.f-input option { background: #1a2e1a; }
       <div class="person-name">HR oddělení</div>
       <div class="person-role">Kariéra & Personalistika</div>
       <div class="person-contact">
-        <a href="mailto:bramko@bramko.cz">vojta.mikolas@bramko.cz</a>
+        <a href="mailto:bramko@bramko.cz">bramko@bramko.cz</a>
         <a href="kariera.html">Volná pracovní místa</a>
       </div>
     </div>
@@ -231,3 +231,13 @@ function submitForm() {
 </script>
 </body>
 </html>
+<style>
+@media (max-width: 768px) {
+  .contact-section { padding: 3rem 1.2rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .persons { padding: 0 1.2rem 3rem; }
+  .persons-grid { grid-template-columns: 1fr; }
+  .form-row-2 { grid-template-columns: 1fr; }
+  .contact-form { padding: 1.8rem 1.2rem; border-radius: 1.2rem; }
+}
+</style>
